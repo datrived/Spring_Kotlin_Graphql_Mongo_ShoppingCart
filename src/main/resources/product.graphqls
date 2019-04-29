@@ -1,0 +1,19 @@
+extend type Query{
+    products(vendorId: ID!): [Product]
+}
+
+type Product{
+    id: ID!
+    vendorId: String!
+    name: String!
+    price: Int!
+    description: String
+    reviews: [Review]
+}
+
+extend type Mutation {
+    newProduct(vendorId: String! ,name: String!, price: Int!, description: String = ""): Product!
+    #deleteProduct(id: ID!): Boolean
+    #updateProduct(id: ID!, name: String, price: Int!): Product!
+
+}
